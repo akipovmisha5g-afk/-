@@ -1,0 +1,49 @@
+class Monster:
+
+    def __init__(self, name="Неизвестная тварь", hp=100, damage=10):
+        self.name = name
+        self.hp = hp
+        self.damage = damage
+
+        print(f"Монстр: {self.name}")
+        print(f"HP: {self.hp}")
+        print(f"DMG: {self.damage}")
+        print("------")
+
+print("Введите данные для первого монстра (Имя Здоровье Урон):")
+line1 = input()
+
+print("Введите данные для второго монстра (Имя Здоровье Урон):")
+line2 = input()
+
+name1, hp1, damage1 = line1.split()
+name2, hp2, damage2 = line2.split()
+
+m1 = Monster(name1, int(hp1), int(damage1))
+m2 = Monster(name2, int(hp2), int(damage2))
+
+print("\n=== БОЙ НАЧАЛСЯ! ===\n")
+
+while True:
+
+    print(f"{m1.name} наносит удар!")
+    m2.hp -= m1.damage
+    print(f"У {m2.name} осталось {m2.hp} HP")
+
+    if m2.hp <= 0:
+        print(f"\nПобедил {m1.name}!")
+        print("=== БОЙ ОКОНЧЕН ===")
+        break
+
+    print("---")
+
+    print(f"{m2.name} наносит удар!")
+    m1.hp -= m2.damage
+    print(f"У {m1.name} осталось {m1.hp} HP")
+
+    if m1.hp <= 0:
+        print(f"\nПобедил {m2.name}!")
+        print("=== БОЙ ОКОНЧЕН ===")
+        break
+
+    print("---")
